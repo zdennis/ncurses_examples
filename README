@@ -1,4 +1,4 @@
-These examples are based on the book Programmer's Guide to nCurses by Dan Gookin. The book by Gookin was written nearly 20 years ago for C, and these examples are targeted for the Ncurses wrapper library in Ruby.
+These examples are based on the book Programmer's Guide to nCurses by Dan Gookin. The book by Gookin was written targeted for C, and these examples are targeted for the Ncurses wrapper library in Ruby.
 
 These are not to explain or introduce nCurses or its ruby library. I am simply sharing my journey of learning about nCurses with you by providing the examples free of charge. In my search for using nCurses I have seen a lot of questions asked and not very many answers given. Perhaps these examples will help provide some clarification.
 
