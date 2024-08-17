@@ -13,7 +13,7 @@ begin
   # you'll get "foo". If you pass in "bar" and type in "foo"
   # you'll get "foobar"
   first_name = ""
-  window.getstr first_name
+  first_name = window.getstr
 
   window.addstr("What is your middle initial? ")
   window.refresh
@@ -21,13 +21,12 @@ begin
   # numeric argument to tell it who many characters
   # to allow. Curses won't let the user enter
   # more than the number of characters allowed.
-  middle_name = ""
-  window.getnstr middle_name, 1
+  middle_name = window.getstr
 
   window.addstr("What is your last name? ")
   window.refresh
   last_name = ""
-  window.getstr last_name
+  last_name = window.getstr
   window.addstr(sprintf("Pleased to meet you, %s %s %s!", first_name, middle_name, last_name))
   window.refresh
 

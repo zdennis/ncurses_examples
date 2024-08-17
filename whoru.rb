@@ -9,12 +9,14 @@ begin
   # Se whoru2.rb example.
 
   name, password = "", ""
-  window.mvprintw(3, 10, "Enter your name: ")
+  window.setpos(3, 10)
+  window.addstr("Enter your name: ")
   window.refresh
-  window.getnstr(name, 45)
-  window.mvprintw(5, 10, "Enter your password: ")
+  name = window.getstr
+  window.setpos(5, 10)
+  window.addstr("Enter your password: ")
   window.refresh
-  window.getnstr(password, 8)
+  password = window.getstr
 ensure
   Curses.close_screen
 end

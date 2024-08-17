@@ -11,10 +11,9 @@ begin
   end
 
   # +getyx+ gets the position of the cursor on the screen
-  row = []
-  col = []
-  window.getyx(row, col)
-  window.addstr(sprintf("\n\nThe cursor was at row %d and column %d.\n", row.first, col.first))
+  row = window.cury
+  col = window.curx
+  window.addstr(sprintf("\n\nThe cursor was at row %d and column %d.\n", row, col))
   window.refresh
 
   window.getch

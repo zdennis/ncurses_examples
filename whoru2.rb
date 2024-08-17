@@ -8,17 +8,21 @@ begin
   # correctly hides the password
 
   name, password = "", ""
-  window.mvprintw(3, 10, "Enter your name: ")
+  window.setpos(3, 10)
+  window.addstr("Enter your name: ")
   window.refresh
-  window.getnstr(name, 45)
-  window.mvprintw(5, 10, "Enter your password: ")
+  name = window.getstr #,45
+  window.setpos(5, 10)
+  window.addstr("Enter your password: ")
   window.refresh
   Curses.noecho
-  window.getnstr(password, 8)
+  password = window.getstr # 8
   Curses.echo
 
-  window.mvprintw(7, 10, "Your name is %s", name)
-  window.mvprintw(8, 10, "Your password is %s", password)
+  window.setpos(7, 10)
+  window.addstr(sprintf("Your name is %s", name))
+  window.setpos(8, 10)
+  window.addstr(sprintf("Your password is %s", password))
   window.refresh
   window.getch
 ensure
