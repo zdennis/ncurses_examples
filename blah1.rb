@@ -4,9 +4,7 @@ begin
   window = Curses.init_screen
   Curses.cbreak
 
-  rows, cols = [], []
-  window.getmaxyx(rows, cols)
-  rows, cols = rows.first, cols.first
+  rows, cols = window.maxx, window.maxy
 
   populate_screen = lambda do
     text = "blah "
@@ -39,8 +37,8 @@ begin
 
   populate_screen.call
   window.move(rows/2,0)
-  # +clrtobot+ clears the screen from the current cursor position to the end of screen
-  window.clrtobot
+  # +clear+ clears the screen from the current cursor position to the end of screen
+  window.clear
   window.refresh
   window.getch
 
