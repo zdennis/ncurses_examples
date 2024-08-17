@@ -2,6 +2,4 @@
 
 source "https://rubygems.org"
 
-# gem "rails"
-
-gem "Curses", "~> 0.9.1"
+gem "curses", "~> 1.4"

@@ -1,55 +1,55 @@
-require 'ncurses'
+require 'curses'
 
 begin
-  Ncurses.initscr
-  Ncurses.cbreak
-  Ncurses.start_color
+  Curses.init_screen
+  Curses.cbreak
+  Curses.start_color
 
-  Ncurses.init_pair 1, Ncurses::COLOR_WHITE, Ncurses::COLOR_BLUE
-  Ncurses.init_pair 2, Ncurses::COLOR_GREEN, Ncurses::COLOR_WHITE
-  Ncurses.init_pair 3, Ncurses::COLOR_RED, Ncurses::COLOR_GREEN
-  Ncurses.init_pair 4, Ncurses::COLOR_BLACK, Ncurses::COLOR_YELLOW
-  
+  Curses.init_pair 1, Curses::COLOR_WHITE, Curses::COLOR_BLUE
+  Curses.init_pair 2, Curses::COLOR_GREEN, Curses::COLOR_WHITE
+  Curses.init_pair 3, Curses::COLOR_RED, Curses::COLOR_GREEN
+  Curses.init_pair 4, Curses::COLOR_BLACK, Curses::COLOR_YELLOW
+
   # calculate window sizes and locations
   rows, cols = [], []
-  Ncurses.getmaxyx Ncurses.stdscr, rows, cols
+  Curses.getmaxyx Curses.stdscr, rows, cols
   maxx = cols.first
   maxy = rows.first
   halfx = maxx / 2
   halfy = maxy / 2
-  Ncurses.refresh
-  
+  Curses.refresh
+
   # create 4 windows to take up the screen
-  window1 = Ncurses.newwin halfy, halfx, 0, 0
-  window1.bkgd Ncurses.COLOR_PAIR(1)
-  window2 = Ncurses.newwin halfy, halfx, 0, halfx
-  window2.bkgd Ncurses.COLOR_PAIR(2)
-  window3 = Ncurses.newwin halfy, halfx, halfy, 0
-  window3.bkgd Ncurses.COLOR_PAIR(3)
-  window4 = Ncurses.newwin halfy, halfx, halfy, halfx
-  window4.bkgd Ncurses.COLOR_PAIR(4)
+  window1 = Curses.newwin halfy, halfx, 0, 0
+  window1.bkgd Curses.COLOR_PAIR(1)
+  window2 = Curses.newwin halfy, halfx, 0, halfx
+  window2.bkgd Curses.COLOR_PAIR(2)
+  window3 = Curses.newwin halfy, halfx, halfy, 0
+  window3.bkgd Curses.COLOR_PAIR(3)
+  window4 = Curses.newwin halfy, halfx, halfy, halfx
+  window4.bkgd Curses.COLOR_PAIR(4)
   if !window1
-    Ncurses.addstr("Unable to allocate memory")
-    Ncurses.refresh
-  end  
-    
+    Curses.addstr("Unable to allocate memory")
+    Curses.refresh
+  end
+
   # write to each window
-  Ncurses.mvwaddstr window1, 0, 0, "This is window A\n"
+  Curses.mvwaddstr window1, 0, 0, "This is window A\n"
   window1.refresh
-  Ncurses.mvwaddstr window2, 0, 0, "This is window B\n"
+  Curses.mvwaddstr window2, 0, 0, "This is window B\n"
   window2.refresh
   window3.mvaddstr 0, 0, "This is window C\n"
   window3.refresh
   window4.mvaddstr 0, 0, "This is window D\n"
   window4.refresh
-  Ncurses.getch
-  
+  Curses.getch
+
   # let's add a new window to the middle of the screen
-  window5 = Ncurses.newwin(halfy, halfx, halfy/2, halfx/2)
+  window5 = Curses.newwin(halfy, halfx, halfy/2, halfx/2)
   window5.mvaddstr 0, 0, "This is the middle window! Press enter to delete it!"
   window5.refresh
-  Ncurses.getch
-  
+  Curses.getch
+
   # now's let's delete the middle window (
   window5.delwin
   # refresh the other windows so it dissappears
@@ -58,22 +58,22 @@ begin
     window.touchwin
     window.refresh
   end
-  
+
   # Let's do something crazy with the 4 windows
   Thread.new do
     loop do
-      Ncurses.stdscr.touchwin
-      Ncurses.stdscr.refresh
+      Curses.stdscr.touchwin
+      Curses.stdscr.refresh
       windows.reverse.each_with_index do |window, i|
         window.addstr(".")
         window.touchwin
         window.refresh
-        Ncurses.napms 100
+        # Curses.napms 100
       end
     end
   end
-  
-  Ncurses.getch
+
+  Curses.getch
 ensure
-  Ncurses.endwin
+  Curses.close_screen
 end

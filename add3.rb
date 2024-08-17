@@ -1,12 +1,12 @@
-require 'ncurses'
+require 'curses'
 
 begin
-  window = Ncurses.initscr
-  Ncurses.cbreak
+  window = Curses.init_screen
+  Curses.cbreak
 
   text1 = "Oh give me a clone!\n"
   text2 = "Yes a clone of my own"
-  
+
   window.addstr(text1)
   window.addstr(text2)
   window.move(2,0) # move to third row, first column
@@ -15,5 +15,5 @@ begin
 
   window.getch
 ensure
-  Ncurses.endwin
+  Curses.close_screen
 end

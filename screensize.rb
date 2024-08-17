@@ -1,18 +1,18 @@
-require 'ncurses'
+require 'curses'
 
 begin
-  window = Ncurses.initscr
-  Ncurses.cbreak
-  
+  window = Curses.init_screen
+  Curses.cbreak
+
   lines = []
   columns = []
   window.getmaxyx(lines, columns)
   window.printw("Your window has %d rows and %d columns\n", lines.first, columns.last)
-  window.printw("Your window has %d rows and %d columns\n", Ncurses.LINES(), Ncurses.COLS())
+  window.printw("Your window has %d rows and %d columns\n", Curses.LINES(), Curses.COLS())
 
   window.refresh
   window.getch
 
 ensure
-  Ncurses.endwin
+  Curses.close_screen
 end

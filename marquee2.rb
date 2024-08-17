@@ -1,11 +1,11 @@
-require 'ncurses'
+require 'curses'
 
 class MyScreen
-  def initialize(ncurses_screen, &blk)
-    @screen = ncurses_screen
+  def initialize(curses_screen, &blk)
+    @screen = curses_screen
     instance_eval &blk if block_given?
   end
-  
+
   def fill
     start = 0
     x = rows
@@ -15,27 +15,27 @@ class MyScreen
       start +=1
     end
   end
-  
+
   private
-  
+
   def rows_and_cols
     rows, cols = [], []
     @screen.getmaxyx rows, cols
     [rows.first, cols.first]
   end
-  
+
   def rows
     rows_and_cols.first
   end
-  
+
   def cols
     rows_and_cols.last
   end
 end
 
 begin
-  window = Ncurses.initscr
-  Ncurses.cbreak
+  window = Curses.init_screen
+  Curses.cbreak
 
   window.insch ' '[0]
   screen = MyScreen.new window do
@@ -46,11 +46,11 @@ begin
       window.move 5, 5
       window.insch ch
       window.refresh
-      Ncurses.napms 100
+      # Curses.napms 100
     end
   end
-  
-  Ncurses.getch
+
+  Curses.getch
 ensure
-  Ncurses.endwin
+  Curses.close_screen
 end

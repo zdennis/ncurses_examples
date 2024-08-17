@@ -1,14 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    Curses (0.9.1)
+    curses (1.4.6)
 
 PLATFORMS
   ruby
   x86_64-darwin-22
 
 DEPENDENCIES
-  Curses
+  curses (~> 1.4)
 
 BUNDLED WITH
    2.5.5

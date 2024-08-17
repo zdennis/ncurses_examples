@@ -1,28 +1,28 @@
-require 'ncurses'
+require 'curses'
 
 begin
-  window = Ncurses.initscr
-  Ncurses.cbreak
-  
+  window = Curses.init_screen
+  Curses.cbreak
+
   kbhit = lambda do
-    Ncurses.nodelay(window, true)
-    Ncurses.noecho
+    Curses.nodelay(window, true)
+    Curses.noecho
     ch = window.getch
-    if ch == Ncurses::ERR
+    if ch == Curses::ERR
       result = false
     else
       result = true
-      Ncurses.ungetch ch
+      Curses.ungetch ch
     end
-  
-    Ncurses.echo
-    Ncurses.nodelay(window, false)
+
+    Curses.echo
+    Curses.nodelay(window, false)
     result
   end
-  
+
   window.addstr("Press any key to end this program:")
-  while !kbhit.call 
+  while !kbhit.call
   end
 ensure
-  Ncurses.endwin
+  Curses.close_screen
 end

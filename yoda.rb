@@ -1,8 +1,8 @@
-require 'ncurses'
+require 'curses'
 
 begin
-  window = Ncurses.initscr
-  Ncurses.cbreak
+  window = Curses.init_screen
+  Curses.cbreak
 
   window.instance_eval do
     # printw is same as printf function
@@ -14,5 +14,5 @@ begin
 
   window.getch
 ensure
-  Ncurses.endwin
+  Curses.close_screen
 end
