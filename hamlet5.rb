@@ -18,7 +18,7 @@ begin
   window.refresh
   window.getch
 
-  window.move 2, 25
+  window.setpos 2, 25
   11.times { window.delch ; window.refresh; sleep 0.01}
   window.refresh
   window.getch

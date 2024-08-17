@@ -29,14 +29,14 @@ begin
   window.getch
 
   populate_screen.call
-  window.move(rows/2,0)
+  window.setpos(rows/2,0)
   # +clrtoeol+ clears the screen from the current cursor position to the end of the line
   window.clrtoeol
   window.refresh
   window.getch
 
   populate_screen.call
-  window.move(rows/2,0)
+  window.setpos(rows/2,0)
   # +clear+ clears the screen from the current cursor position to the end of screen
   window.clear
   window.refresh

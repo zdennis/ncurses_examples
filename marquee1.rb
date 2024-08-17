@@ -9,7 +9,7 @@ begin
 
   text = "Stock Market Swells! DOW tops 15,000"
   text.reverse.each_byte do |ch|
-    window.move 5, 5
+    window.setpos 5, 5
     window.insch ch
     window.refresh
     sleep 0.01

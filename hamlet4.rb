@@ -18,7 +18,7 @@ begin
   window.refresh
   window.getch
 
-  window.move(1,0)
+  window.setpos(1,0)
   # +deleteln+ deletes a full line of of text and backscrolls. It does not
   # affect the position of the cursor, after this call the cursor will still be
   # at 1, 0

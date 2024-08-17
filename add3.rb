@@ -9,7 +9,7 @@ begin
 
   window.addstr(text1)
   window.addstr(text2)
-  window.move(2,0) # move to third row, first column
+  window.setpos(2,0) # move to third row, first column
   window.addstr("With the Y chromosome changed to the X.")
   window.refresh
 

@@ -21,13 +21,13 @@ begin
   window.refresh
   window.getch
 
-  window.move(1,0)
+  window.setpos(1,0)
   window.insertln
   window.addstr Ham2
   window.refresh
   window.getch
 
-  window.move(3,0)
+  window.setpos(3,0)
   window.insertln
   window.addstr Ham4
   window.refresh
