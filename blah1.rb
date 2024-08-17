@@ -4,7 +4,7 @@ begin
   window = Curses.init_screen
   Curses.cbreak
 
-  rows, cols = window.maxx, window.maxy
+  rows, cols = window.maxy, window.maxx
 
   populate_screen = lambda do
     text = "blah "

@@ -4,28 +4,29 @@ begin
   window = Curses.init_screen
   Curses.cbreak
 
-  lines, cols = [], []
-  window.getmaxyx(lines, cols)
-  rows = lines.first - 1
-  cols = cols.first - 1
+  rows, cols = window.maxy - 1, window.maxx - 1
 
-  window.mvaddch 0, 0, '*'[0]
+  window.setpos(0,0)
+  window.addch('*')
   window.refresh
   sleep 0.5
 
-  window.mvaddch 0, cols, '*'[0]
+  window.setpos(0,cols)
   window.refresh
   sleep 0.5
 
-  window.mvaddch rows, 0, '*'[0]
+  window.setpos(rows,0)
+  window.addch('|')
   window.refresh
   sleep 0.5
 
-  window.mvaddch rows, cols, '*'[0]
+  window.setpos(rows,cols)
+  window.addch('=')
   window.refresh
   sleep 0.5
 
-  window.move rows/2, cols/2
+  window.setpos rows/2, cols/2
+  window.addch("F")
   window.refresh
 
   window.getch
