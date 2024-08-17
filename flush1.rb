@@ -14,7 +14,7 @@ begin
   # were pushed onto an input buffer (even though you couldn't see them until
   # getnstr is called
   str = ""
-  window.getnstr str, 80
+  window.getstr
   window.refresh
 
   window.getch
@@ -27,7 +27,7 @@ begin
   # the program was thinking during the napms call it's gone now!
   Curses.flushinp
   str = ""
-  window.getnstr str, 80
+  window.getstr
   window.refresh
 ensure
   Curses.close_screen
