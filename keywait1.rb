@@ -10,10 +10,10 @@ begin
 
   # +nodelay+ makes the getch method non-blocking, whereas typically it is
   # blocking. To return it to its normal blocking just do Curses.nodelay(window, false)
-  Curses.nodelay(window, true)
+  window.nodelay = true
   window.addstr "Press any key to stop the insane loop\n"
   value = 0
-  while window.getch == Curses::ERR
+  while window.getch.nil?
     window.printw("%d", value+=1)
     sleep 0.01
     window.refresh

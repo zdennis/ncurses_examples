@@ -5,10 +5,10 @@ begin
   Curses.cbreak
 
   kbhit = lambda do
-    Curses.nodelay(window, true)
+    window.nodelay = true
     Curses.noecho
     ch = window.getch
-    if ch == Curses::ERR
+    if ch.nil?
       result = false
     else
       result = true
@@ -16,7 +16,7 @@ begin
     end
 
     Curses.echo
-    Curses.nodelay(window, false)
+    window.nodelay = false
     result
   end
 
