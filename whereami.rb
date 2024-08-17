@@ -14,7 +14,7 @@ begin
   row = []
   col = []
   window.getyx(row, col)
-  window.printw("\n\nThe cursor was at row %d and column %d.\n", row.first, col.first)
+  window.addstr(sprintf("\n\nThe cursor was at row %d and column %d.\n", row.first, col.first))
   window.refresh
 
   window.getch

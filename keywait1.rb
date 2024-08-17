@@ -14,7 +14,7 @@ begin
   window.addstr "Press any key to stop the insane loop\n"
   value = 0
   while window.getch.nil?
-    window.printw("%d", value+=1)
+    window.addstr(sprintf("%d", value+=1))
     sleep 0.01
     window.refresh
   end

@@ -28,7 +28,7 @@ begin
   window.refresh
   last_name = ""
   window.getstr last_name
-  window.printw("Pleased to meet you, %s %s %s!", first_name, middle_name, last_name)
+  window.addstr(sprintf("Pleased to meet you, %s %s %s!", first_name, middle_name, last_name))
   window.refresh
 
   window.getch
