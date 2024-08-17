@@ -14,7 +14,7 @@ begin
     window.refresh
     sleep 0.01
   end
-  window.insch ' '[0]
+  window.insch ' '
   Curses.getch
 ensure
   Curses.close_screen

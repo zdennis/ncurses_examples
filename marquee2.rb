@@ -8,8 +8,8 @@ class MyScreen
 
   def fill
     start = 0
-    x = rows
-    y = cols
+    x = cols
+    y = rows
     while start < y
       @screen.addstr("A B C D E F G H I J K L M N O P Q R S T U V W X Y Z\n")
       start +=1
@@ -19,9 +19,7 @@ class MyScreen
   private
 
   def rows_and_cols
-    rows, cols = [], []
-    @screen.getmaxyx rows, cols
-    [rows.first, cols.first]
+    [@screen.maxy, @screen.maxx]
   end
 
   def rows
@@ -37,16 +35,16 @@ begin
   window = Curses.init_screen
   Curses.cbreak
 
-  window.insch ' '[0]
+  window.insch ' '
   screen = MyScreen.new window do
     fill
     window.refresh
     text = "Stock Market Swells! DOW tops 15,000"
     text.reverse.each_byte do |ch|
-      window.move 5, 5
+      window.setpos 5, 5
       window.insch ch
       window.refresh
-      sleep 0.01
+      sleep 0.1
     end
   end
 

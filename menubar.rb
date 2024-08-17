@@ -14,10 +14,13 @@ class MyScreen
         @selected_item = label
         @screen.attron(Curses::A_REVERSE)
       end
-      @screen.mvaddstr(i+2, 5, label)
+      @screen.setpos(i+2, 5)
+      @screen.addstr(label)
       @screen.attroff(Curses::A_REVERSE)
     end
-    @screen.mvaddstr(@menu_items.size*2+2, 5, "Press the up/down arrow keys to change selection")
+      @screen.setpos(@menu_items.size*2+2, 5)
+      @screen.addstr("Press the up/down arrow keys to change selection")
+
     @screen.refresh
   end
 
