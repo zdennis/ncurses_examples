@@ -9,7 +9,7 @@ begin
   Curses.init_pair 2, Curses::COLOR_GREEN, Curses::COLOR_WHITE
   Curses.init_pair 3, Curses::COLOR_RED, Curses::COLOR_GREEN
 
-  window.bkgd Curses.COLOR_PAIR(1)
+  window.bkgd Curses.color_pair(1)
   window.addstr "I think that I shall never see\n"
   window.addstr "a color screen as pretty as thee.\n"
   window.addstr "For seasons may change\n"
@@ -18,11 +18,11 @@ begin
   window.refresh
   window.getch
 
-  window.bkgd Curses.COLOR_PAIR(2)
+  window.bkgd Curses.color_pair(2)
   window.refresh
   window.getch
 
-  window.bkgd Curses.COLOR_PAIR(3)
+  window.bkgd Curses.color_pair(3)
   window.refresh
   window.getch
 ensure

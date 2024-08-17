@@ -12,14 +12,14 @@ begin
   # create a sub-window using derwin, same arguments as newwin
   # This can be called as Curses.derwin, but then it takes a window
   # as the explicit first argument, ie: Curses.derwin window, 5, 20, 10, 30
-  window = Curses.newwin 100, 100, 10, 10
+  window = Curses::Window.new 100, 100, 10, 10
 
   subwindow = window.derwin(5, 20, 10, 30)
 
-  window.bkgd Curses.COLOR_PAIR(1)
+  window.bkgd Curses.color_pair(1)
   window.addstr "Hello son."
 
-  subwindow.bkgd Curses.COLOR_PAIR(2)
+  subwindow.bkgd Curses.color_pair(2)
   subwindow.addstr "Hello dad."
 
   window.refresh

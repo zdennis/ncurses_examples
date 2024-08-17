@@ -14,10 +14,10 @@ begin
   # Coordinates are relative to the screen.
   subwindow = window.subwin(5, 20, 10, 30)
 
-  window.bkgd Curses.COLOR_PAIR(1)
+  window.bkgd Curses.color_pair(1)
   window.addstr "Hello son."
 
-  subwindow.bkgd Curses.COLOR_PAIR(2)
+  subwindow.bkgd Curses.color_pair(2)
   subwindow.addstr "Hello dad."
 
   window.refresh
