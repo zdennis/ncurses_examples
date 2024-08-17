@@ -15,7 +15,7 @@ begin
   value = 0
   while window.getch == Curses::ERR
     window.printw("%d", value+=1)
-    # Curses.napms 100
+    sleep 0.01
     window.refresh
   end
 ensure

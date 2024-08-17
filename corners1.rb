@@ -13,22 +13,22 @@ begin
   window.move(0,0)
   window.addch('*'[0])
   window.refresh
-  # Curses.napms(500) # pause half a second
+  sleep 0.5 # pause half a second
 
   window.move(0, cols)
   window.addch('*'[0])
   window.refresh
-  # Curses.napms(500) # pause half a second
+  sleep 0.5 # pause half a second
 
   window.move(rows, 0)
   window.addch('*'[0])
   window.refresh
-  # Curses.napms(500) # pause half a second
+  sleep 0.5 # pause half a second
 
   window.move(rows, cols)
   window.addch('*'[0])
   window.refresh
-  # Curses.napms(500) # pause half a second
+  sleep 0.5 # pause half a second
 
   window.move(rows/2, cols/2)
   window.refresh

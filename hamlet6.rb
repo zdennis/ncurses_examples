@@ -19,8 +19,8 @@ begin
   window.getch
 
   window.move 2, 25
-  11.times { window.delch ; window.refresh; # Curses.napms 100 }
-  "obnoxious ".reverse.each_byte { |ch| window.insch(ch) ; window.refresh ; # Curses.napms 100 }
+  11.times { window.delch ; window.refresh; sleep 0.01}
+  "obnoxious ".reverse.each_byte { |ch| window.insch(ch) ; window.refresh ; sleep 0.01}
 
   window.refresh
   window.getch

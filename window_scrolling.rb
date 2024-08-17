@@ -4,10 +4,6 @@ begin
   window = Curses.init_screen
   Curses.cbreak
 
-  rows, cols = [], []
-  window.getmaxyx rows, cols
-  rows, cols = rows.first, cols.first
-
   window.addstr "Hit enter to see text being added with scrolling disabled"
   window.refresh
   window.getch
@@ -18,7 +14,7 @@ begin
   text.split(/ /).each do |word|
     window.addstr "#{word}\n"
     window.refresh
-    # Curses.napms 25
+    sleep 0.025
   end
   window.clear
 
@@ -30,18 +26,18 @@ begin
   text.split(/ /).each do |word|
     window.addstr "#{word}\n"
     window.refresh
-    # Curses.napms 25
+    sleep 0.025
   end
   window.clear
 
   window.addstr "Hit enter to see text being added with scrolling disabled in a new window"
   window.refresh
   window.getch
-  window2 = Curses.newwin(20, 20, 20, 20)
+  window2 =Curses::Window.new(20, 20, 20, 20)
   text.split(/ /).each do |word|
     window2.addstr "#{word}\n"
     window2.refresh
-    # Curses.napms 25
+    sleep 0.025
   end
 
 
@@ -52,7 +48,7 @@ begin
   text.split(/ /).each do |word|
     window2.addstr "#{word}\n"
     window2.refresh
-    # Curses.napms 25
+    sleep 0.025
   end
 
 ensure

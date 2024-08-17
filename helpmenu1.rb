@@ -1,12 +1,18 @@
 require 'curses'
 
 class HelpMenu
-  def initialize(Curses_screen)
-    @screen = Curses_screen
-    @help_screen = Curses.newwin(0,0,0,0)
-    Curses.mvwaddstr(@help_screen, 6, 32, "Help menu Screen")
-    Curses.mvwaddstr(@help_screen, 9, 28, "Press the ~ key to quit")
-    Curses.mvwaddstr(@help_screen, 12, 28, "Press ENTER to go back")
+  def initialize(curses_screen)
+    @screen = curses_screen
+    @help_screen = Curses::Window.new(0,0,0,0)
+    @help_screen.move_relative(6, 32)
+    @help_screen.addstr("Help menu Screen\n")
+
+    @help_screen.move_relative(9, 28)
+    @help_screen.addstr("Press the ~ key to quit\n")
+
+    @help_screen.move_relative(12, 28)
+    @help_screen.addstr("Press ENTER to go back\n")
+
   end
 
   def show_help
@@ -14,12 +20,12 @@ class HelpMenu
     @screen.getch
 
     # Calling @screen.refresh won't actually update the screen because
-    # Curses will only update text that has changed, we can use +touchwin+
+    # Curses will only update text that has changed, we can use +touch+
     # tell Curses that every character has changed and needs to be redrawn.
-    # If you comment out @screen.touchwin and uncomment @screen.refresh you'll
+    # If you comment out @screen.touch and uncomment @screen.refresh you'll
     # see the program no longer work!
     # @screen.refresh
-    @screen.touchwin
+    @screen.touch
   end
 end
 

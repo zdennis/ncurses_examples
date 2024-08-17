@@ -11,19 +11,19 @@ begin
 
   window.mvaddch 0, 0, '*'[0]
   window.refresh
-  # Curses.napms(500)
+  sleep 0.5
 
   window.mvaddch 0, cols, '*'[0]
   window.refresh
-  # Curses.napms(500)
+  sleep 0.5
 
   window.mvaddch rows, 0, '*'[0]
   window.refresh
-  # Curses.napms(500)
+  sleep 0.5
 
   window.mvaddch rows, cols, '*'[0]
   window.refresh
-  # Curses.napms(500)
+  sleep 0.5
 
   window.move rows/2, cols/2
   window.refresh

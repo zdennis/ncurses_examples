@@ -76,7 +76,7 @@ begin
         window.addstr(".")
         window.touch
         window.refresh
-        # Curses.napms 100
+        sleep 0.01
       end
     end
   end

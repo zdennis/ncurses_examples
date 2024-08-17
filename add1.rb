@@ -6,7 +6,7 @@ begin
   "Greetings from Curses".each_byte do |ch|
     window.addch ch
     window.refresh
-    # Curses.napms 100 # refreshes every 1/10th of a second
+    sleep 0.01 # refreshes every 1/10th of a second
   end
   window.getch
 ensure

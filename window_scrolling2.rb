@@ -4,10 +4,6 @@ begin
   window = Curses.init_screen
   Curses.cbreak
 
-  rows, cols = [], []
-  window.getmaxyx rows, cols
-  rows, cols = rows.first, cols.first
-
   window.scrollok true
 
   # +scroll+ is used to manually scroll one line at a time

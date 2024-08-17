@@ -12,7 +12,7 @@ begin
     window.move 5, 5
     window.insch ch
     window.refresh
-    # Curses.napms 100
+    sleep 0.01
   end
   window.insch ' '[0]
   Curses.getch
